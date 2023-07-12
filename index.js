@@ -1,22 +1,30 @@
 const express = require("express");
 const app = express();
 
-app.set('view engine','ejs');
+app.set('view engine', 'ejs');
 
 app.get("/", (requisicao, resposta) => {
-    var nome = "Carlos Valdir";
-    var favoriteLanguage = "JavaScript";
-        resposta.render("../views/index",{
-            nome: nome,
-            language: favoriteLanguage,
-            empresa: "Udemy",
-            idade: "17 anos"
-        });
+    resposta.render("../views/index", {
+        name: "Parâmetro nome aqui",
+        language: "Parâmetro language aqui",
+        empresa: "Udemy",
+        idade: "17 anos"
+    })
+});
 
+app.get("/:nome/:language", (requisicao, resposta) => {
+    var nome = requisicao.params.nome;
+    var favoriteLanguage = requisicao.params.language;
+    resposta.render("../views/index", {
+        name: nome,
+        language: favoriteLanguage,
+        empresa: "Udemy",
+        idade: "17 anos"
     });
+});
 
 
 
 
 
-app.listen(4000,() => {console.log("App rodando!");})
+app.listen(4000, () => { console.log("App rodando!"); })

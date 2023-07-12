@@ -1,7 +1,7 @@
 {
   "name": "nodejscurso",
   "version": "1.0.0",
-  "description": "Iciando com express",
+  "description": "Plataforma de perguntas e respostas",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
   }
 }

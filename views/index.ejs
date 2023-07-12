@@ -21,9 +21,16 @@
         Empresa em que cursa: <%=empresa%>
     </h3>
     <h3>
-        Idade aluno:<%=idade%>
+        Idade aluno: <%=idade%>
     </h3>
-   
+
+    <%if(mensagem){ %>
+        <h3>
+            Isso é uma mensagem de erro!
+        </h3>
+    <% } %>
+
+
 </body>
 
 </html>

@@ -15,11 +15,13 @@ app.get("/", (requisicao, resposta) => {
 app.get("/:nome/:language", (requisicao, resposta) => {
     var nome = requisicao.params.nome;
     var favoriteLanguage = requisicao.params.language;
+    var exibirMensagem = true;
     resposta.render("../views/index", {
         name: nome,
         language: favoriteLanguage,
         empresa: "Udemy",
-        idade: "17 anos"
+        idade: "17 anos",
+        mensagem: exibirMensagem
     });
 });
 

@@ -2,33 +2,43 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia perguntas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia perguntas</title>
 </head>
 
 <body>
-    <h1>Guia perguntas</h1>
-    <hr>
-    <h2>Lista de perguntas</h2>
-    <h3>
-        Nome: <%=name%>
-    </h3>
-    <h3>
-        Linguagem favorita: <%=language%>
-    </h3>
-    <h3>
-        Empresa em que cursa: <%=empresa%>
-    </h3>
-    <h3>
-        Idade aluno: <%=idade%>
-    </h3>
+  <h1>Guia perguntas</h1>
+  <hr>
+  <h2>Lista de perguntas</h2>
+  <h3>
+    Nome: <%=name%>
+  </h3>
+  <h4>
+    Linguagem favorita: <%=language%>
+  </h4>
+  <h5>
+    Empresa em que cursa / trabalha: <%=empresa%>
+  </h5>
+  <h5>
+    Idade aluno: <%=idade%>
+  </h5>
 
-    <%if(mensagem){ %>
-        <h3>
-            Isso é uma mensagem de erro!
-        </h3>
-    <% } %>
+  <% if(mensagem){ %>
+    <h3 style="color: red;">
+      Isso é uma mensagem de erro!
+    </h3>
+    <%}else{%>
+      <h3>Nenhum erro!</h3>
+      <%}%>
+        <h3>Produtos existentes no meu mercado:</h3>
+        <ul>
+          <%produtos.forEach(function(produto){%>
+            <li>
+              <%=produto.nome%> : <%=produto.preco%>
+            </li>
+            <%})%>
+        </ul>
 
 
 </body>

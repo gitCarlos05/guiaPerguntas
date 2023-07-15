@@ -11,6 +11,7 @@ var produtos = [
 ];
 
 app.set('view engine', 'ejs');
+app.use(express.static('public'))
 
 app.get("/", (requisicao, resposta) => {
     resposta.render("../views/index", {
@@ -23,7 +24,7 @@ app.get("/", (requisicao, resposta) => {
     })
 });
 
-app.get("/:nome/:language/:empresa/:idade", (requisicao, resposta) => {
+app.get("/:nome?/:language?/:empresa?/:idade?", (requisicao, resposta) => {
     var nome = requisicao.params.nome;
     var favoriteLanguage = requisicao.params.language;
     var empresa = requisicao.params.empresa;

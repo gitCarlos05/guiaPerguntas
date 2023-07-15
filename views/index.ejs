@@ -5,43 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <title>Guia perguntas</title>
 </head>
-
+<h1><a href="/pergunta" style="text-decoration: none;">Perguntas aqui!</a></h1>
 <body>
-  <h1 class="cabecalho">Guia perguntas</h1>
-  <hr>
-  <h2>Lista de perguntas</h2>
-  <h3>
-    Nome: <%=name%>
-  </h3>
-  <h4>
-    Linguagem favorita: <%=language%>
-  </h4>
-  <h5>
-    Empresa em que cursa / trabalha: <%=empresa%>
-  </h5>
-  <h5>
-    Idade aluno: <%=idade%>
-  </h5>
-
-  <% if(mensagem){ %>
-    <h3 style="color: red;">
-      Isso é uma mensagem de erro!
-    </h3>
-    <%}else{%>
-      <h3>Nenhum erro!</h3>
-      <%}%>
-        <h3>Produtos existentes no meu mercado:</h3>
-        <ul>
-          <%produtos.forEach(function(produto){%>
-            <li>
-              <%=produto.nome%> : <%=produto.preco%>
-            </li>
-            <%})%>
-        </ul>
-
-
 </body>
+
+<script src="../jquery-3.7.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 </html>

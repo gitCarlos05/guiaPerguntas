@@ -1,3 +1,7 @@
-.cabecalho{
-    color: green;
+body {
+    background-color: #c5cbce;
+}
+
+#formulario-pergunta {
+    margin-top: 5vh;
 }

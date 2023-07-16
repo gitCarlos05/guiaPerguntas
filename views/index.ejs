@@ -1,20 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<%- include('partials/header') %>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <title>Guia perguntas</title>
-</head>
-<h1><a href="/pergunta" style="text-decoration: none;">Perguntas aqui!</a></h1>
-<body>
-</body>
+  <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <a class="navbar-brand" href="/pergunta"><img src="/imagens/guia.png" alt="GuiaProgramador"></a>
+    </nav>
+    <div class="container">
+      <div class="card" id="formulario-pergunta">
+        <div class="card-header">
+          <h3>Realizar pergunta</h3>
+        </div>
+        <div class="card-body">
+          <form method="post" action="/salvarPergunta">
+            <label>Título</label>
+            <input class="form-control" type="text" placeholder="Título" name="titulo"><br>
+            <label>Descrição</label>
+            <textarea class="form-control" placeholder="Descreva a pergunta aqui" name="descricao"></textarea><br>
+            <button class="btn btn-primary">Enviar pergunta</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
 
-<script src="../jquery-3.7.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="../js/bootstrap.min.js"></script>
-
-</html>
+  <%- include('partials/footer') %>

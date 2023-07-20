@@ -24,16 +24,20 @@ app.use(bodyParser.json());
 
 //Rotas
 app.get("/", (requisicao, resposta) => {
-    Pergunta.findAll({ raw: true }).then(perguntas => {
+    Pergunta.findAll({
+        raw: true, order: [
+            ['id', 'DESC'] //DESC = decrescente    ASC = crescente
+        ]
+    }).then(perguntas => {
         console.log(perguntas);
-        resposta.render("index",{
+        resposta.render("index", {
             perguntas: perguntas
         });
     });
-    
+
 });
 
-app.get("/perguntas", (request, resposta) => {
+app.get("/pergunta", (request, resposta) => {
     resposta.render("perguntas");
 });
 
@@ -46,7 +50,22 @@ app.post("/salvarPergunta", (requisicao, resposta) => {
     }).then(() => {
         resposta.redirect("/");
     });
-    // resposta.send(`Formulario recebido! <br> Título: ${titulo} <br> Descricao: ${descricao}`);
 });
+
+app.get("/pergunta/:id", (req, res) => {
+    var id = req.params.id;
+
+    Pergunta.findOne({
+        where: { id: id }
+    }).then(pergunta => {
+        if (pergunta != undefined) {
+            res.render("resposta",{
+                pergunta: pergunta
+            });
+        } else {
+            res.redirect("/");
+        }
+    })
+})
 
 app.listen(4000, () => { console.log("App rodando!"); });

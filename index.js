@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const conexao = require("./dataBase/database");
 const Pergunta = require("./dataBase/Pergunta");
+const Resposta = require("./dataBase/Resposta");
 
 //DataBase
 
@@ -59,7 +60,7 @@ app.get("/pergunta/:id", (req, res) => {
         where: { id: id }
     }).then(pergunta => {
         if (pergunta != undefined) {
-            res.render("resposta",{
+            res.render("resposta", {
                 pergunta: pergunta
             });
         } else {

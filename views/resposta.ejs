@@ -2,8 +2,36 @@
     <%- include('partials/navbar') %>
         <div class="container">
             <hr>
-            <h1><%=pergunta.titulo%></h1>
-            <p><%=pergunta.descricao%></p>
+            <h1>
+                <%=pergunta.titulo%>
+            </h1>
+            <p>
+                <%=pergunta.descricao%>
+            </p>
             <hr>
+            <form method="POST" action="/responder">
+                <h2>Responda do seu jeito</h2>
+                <label for="corpo" style="font-size: 15px;"><b>Sua resposta:</b></label><br>
+                <textarea placeholder="Digite sua resposta..." class="form-control mt-3" name="corpo" id="corpo"
+                    required>
+                </textarea><br>
+                <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
+                <button type="submit" class="btn btn-primary" required>Responder</button>
+            </form>
+            <hr>
+            <h3>Outras respostas</h3>
+            <hr>
+            <%resposta.forEach(resposta=>{%>
+                <br>
+                <div class="card">
+                    <div class="card-body">
+                        <p>
+                            <%=resposta.corpo%>
+                        </p>
+                    </div>
+                </div>
+                <a href="/deletarResposta/<%= resposta.id %>" class="btn btn-dark mt-2">Deletar Resposta</a>
+                <%})%>
         </div>
-<%- include('partials/footer') %>
+        
+        <%- include('partials/footer') %>

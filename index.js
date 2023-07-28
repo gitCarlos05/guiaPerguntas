@@ -30,7 +30,7 @@ app.get("/", (requisicao, resposta) => {
             ['id', 'DESC'] //DESC = decrescente    ASC = crescente
         ]
     }).then(perguntas => {
-        console.log(perguntas);
+
         resposta.render("index", {
             perguntas: perguntas
         });
@@ -57,16 +57,43 @@ app.get("/pergunta/:id", (req, res) => {
     var id = req.params.id;
 
     Pergunta.findOne({
-        where: { id: id }
+        where: { id: id },
     }).then(pergunta => {
         if (pergunta != undefined) {
-            res.render("resposta", {
-                pergunta: pergunta
+            Resposta.findAll({
+                where: { perguntaId: pergunta.id },
+                order: [
+                    ['id', 'DESC'] //DESC = decrescente    ASC = crescente
+                ]
+            }).then(resposta => {
+                res.render("resposta", {
+                    pergunta: pergunta,
+                    resposta: resposta
+                });
             });
         } else {
             res.redirect("/");
         }
     })
+});
+
+app.post("/responder", (req, res) => {
+    var corpo = req.body.corpo;
+    var perguntaId = req.body.pergunta;
+    Resposta.create({
+        corpo: corpo,
+        perguntaId: perguntaId
+    }).then(() => {
+        res.redirect("/pergunta/" + perguntaId);
+    });
+});
+
+app.get('/deletarResposta/:id', function(req, res){
+    var idResposta = req.params.id
+    Resposta.destroy({ where: { "id": idResposta } })
+        .then(() => {
+            res.redirect('/')
+        })
 })
 
 app.listen(4000, () => { console.log("App rodando!"); });

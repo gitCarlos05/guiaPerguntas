@@ -70,7 +70,7 @@ app.get("/pergunta/:id", (req, res) => {
                     pergunta: pergunta,
                     resposta: resposta
                 });
-            });
+            }); 
         } else {
             res.redirect("/");
         }

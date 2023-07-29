@@ -12,11 +12,10 @@
             <form method="POST" action="/responder">
                 <h2>Responda do seu jeito</h2>
                 <label for="corpo" style="font-size: 15px;"><b>Sua resposta:</b></label><br>
-                <textarea placeholder="Digite sua resposta..." class="form-control mt-3" name="corpo" id="corpo"
-                    required>
-                </textarea><br>
+                <textarea placeholder="Digite sua resposta..." class="form-control mt-3" name="corpo" id="corpo" required></textarea>
+                    <br>
                 <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
-                <button type="submit" class="btn btn-primary" required>Responder</button>
+                <button type="submit" class="btn btn-primary">Responder</button>
             </form>
             <hr>
             <h3>Outras respostas</h3>
@@ -33,5 +32,5 @@
                 <a href="/deletarResposta/<%= resposta.id %>" class="btn btn-dark mt-2">Deletar Resposta</a>
                 <%})%>
         </div>
-        
+
         <%- include('partials/footer') %>
